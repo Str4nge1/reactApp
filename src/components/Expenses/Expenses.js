@@ -17,26 +17,11 @@ function Expenses(props) {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      <ExpenseItem
-        title={props.expenses.at(0).title}
-        amount={props.expenses.at(0).amount}
-        date={props.expenses.at(0).date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses.at(1).title}
-        amount={props.expenses.at(1).amount}
-        date={props.expenses.at(1).date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses.at(2).title}
-        amount={props.expenses.at(2).amount}
-        date={props.expenses.at(2).date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses.at(3).title}
-        amount={props.expenses.at(3).amount}
-        date={props.expenses.at(3).date}
-      ></ExpenseItem>
+      {props.expenses.map((exp) => {
+        return (
+          <ExpenseItem title={exp.title} amount={exp.amount} date={exp.date} />
+        );
+      })}
     </Card>
   );
 }
